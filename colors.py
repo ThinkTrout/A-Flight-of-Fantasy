@@ -18,4 +18,4 @@ BLINK = "\033[5m"
 NEGATIVE = "\033[7m"
 CROSSED = "\033[9m"
 # DEFAULT
-WHITE = "\033[0m"
+DEFAULT = "\033[0m"

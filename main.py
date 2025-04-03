@@ -32,7 +32,7 @@ def restore_keyboard(oldterm, oldflags, fd):
 
 def sysMessage(color, text, time=None):
     wait = time if time is not None else 0.5
-    print(f'\n{color}{text}{WHITE}')
+    print(f'\n{color}{text}{DEFAULT}')
     sleep(wait)
     system('clear')
     sleep(0.2)
@@ -51,10 +51,25 @@ def typeThenInstant(type,typespeed,instant,delay):
     time.sleep(delay)
 
 def typeout(sentence, delay):
-    for char in sentence:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        sleep(delay)
+    oldterm, oldflags, fd = ignore_keyboard()
+    try:
+        for char in sentence:
+            if is_enter_pressed(fd):
+                system('clear')
+                print(sentence)
+                break
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            sleep(delay)
+    finally:
+        restore_keyboard(oldterm, oldflags, fd)
+
+def is_enter_pressed(fd):
+    try:
+        input_char = os.read(fd, 1)
+        return input_char == b'\n'  # Check if the Enter key is pressed
+    except OSError:
+        return False
 
 def story(text, delay):
     final_text = text + input_box
@@ -64,12 +79,12 @@ def story(text, delay):
     return input()
 
 def intro():
-
+    clear()
     repeat = False
-    current_chapter = 5
+    current_chapter = 1
     
     while current_chapter:
-        wrapped_text = textwrap.fill(chapters[current_chapter]["text"], 75)
+        wrapped_text = textwrap.fill(chapters[current_chapter]["text"], 50)
 
         if chapters[current_chapter]["type"] == "continue":
             if not repeat:
