@@ -1,6 +1,5 @@
 # Welcome to A Flight of Fantasy, a text-based RPG game created by ThinkTrout.
 
-import random
 import sys
 import textwrap
 import termios
@@ -14,7 +13,7 @@ from plot import *
 
 # Keyboard Functions -----------------------------------
 
-def ignore_keyboard():
+def disable_keyboard():
     fd = sys.stdin.fileno()
     oldterm = termios.tcgetattr(fd)
     newattr = termios.tcgetattr(fd)
@@ -24,9 +23,16 @@ def ignore_keyboard():
     fcntl.fcntl(fd, fcntl.F_SETFL, oldflags | os.O_NONBLOCK)
     return oldterm, oldflags, fd
 
-def restore_keyboard(oldterm, oldflags, fd):
+def enable_keyboard(oldterm, oldflags, fd):
     termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)
     fcntl.fcntl(fd, fcntl.F_SETFL, oldflags)
+
+def is_enter_pressed(fd):
+    try:
+        input_char = os.read(fd, 1)
+        return input_char == b'\n'  # Check if the Enter key is pressed
+    except OSError:
+        return False
 
 # System Functions -----------------------------------
 
@@ -51,7 +57,7 @@ def typeThenInstant(type,typespeed,instant,delay):
     time.sleep(delay)
 
 def typeout(sentence, delay):
-    oldterm, oldflags, fd = ignore_keyboard()
+    oldterm, oldflags, fd = disable_keyboard()
     try:
         for char in sentence:
             if is_enter_pressed(fd):
@@ -62,20 +68,11 @@ def typeout(sentence, delay):
             sys.stdout.flush()
             sleep(delay)
     finally:
-        restore_keyboard(oldterm, oldflags, fd)
-
-def is_enter_pressed(fd):
-    try:
-        input_char = os.read(fd, 1)
-        return input_char == b'\n'  # Check if the Enter key is pressed
-    except OSError:
-        return False
+        enable_keyboard(oldterm, oldflags, fd)
 
 def story(text, delay):
     final_text = text + input_box
-    oldterm, oldflags, fd = ignore_keyboard()
     typeout(final_text, delay)
-    restore_keyboard(oldterm, oldflags, fd)
     return input()
 
 def intro():
