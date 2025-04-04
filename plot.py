@@ -2,7 +2,10 @@ from colors import *
 
 chapters = {
     1: {
-        "text": f'Welcome to {PURPLE}A Flight of Fantasy{DEFAULT}, a text-based RPG game created by {LIGHT_GREEN}ThinkTrout{DEFAULT}. Click on the arrow and press [ENTER] to continue.',
+        "text": f"""
+        Welcome to {PURPLE}A Flight of Fantasy{DEFAULT}, a text-based RPG game created by {LIGHT_GREEN}ThinkTrout{DEFAULT}. 
+        Click on the arrow and press [ENTER] to continue.
+        """,
         "type": "continue",
     },
 
