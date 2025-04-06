@@ -1,0 +1,21 @@
+body {
+    background-color: #111;
+    color: #eee;
+    font-family: 'Courier New', monospace;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    background: #222;
+    color: #eee;
+    border: 1px solid #444;
+    font-family: inherit;
+  }
+  
