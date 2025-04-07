@@ -8,8 +8,13 @@ I am currently in the process of teaching myself HTML and CSS by trial and error
 1. Clone the repository.
 2. Click **Code**
 3. Click **Codespaces**
-3. Click **Create new codespace on main**
-5. The environment will automatically set up with all dependencies installed.
+3. Click **Create codespace on main**
+5. Wait forever for it to load.
+
+Open a new terminal and install Flask:
+```
+pip install flask
+```
 
 Run app.py or simply run this code in the terminal:
 ```
