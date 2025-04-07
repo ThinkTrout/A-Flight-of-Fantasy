@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Darkroom RPG</title>
-  <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8" />
+    <title>A Flight of Fantasy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
+
 <body>
-  <div class="container">
-    <h1>Darkroom RPG</h1>
-    <div id="log">
-      {% for entry in state.log %}
-        <p>{{ entry }}</p>
-      {% endfor %}
+    <p class="title">A Flight of Fantasy</p>
+    <p class="subtitle">This is a text-based RPG created out of boredom and fueled by lazy curiosity and unrealistic ambitions.</p>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+        <svg id="icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 24px; height: 24px;"></svg>
+            <path d="M10 2h4v4h-4V2zM7 7h10v2h-2v13h-2v-6h-2v6H9V9H7V7zM5 5v2h2V5H5zm0 0H3V3h2v2zm14 0v2h-2V5h2zm0 0V3h2v2h-2z" fill="currentColor"/>
+        </svg>
     </div>
-    <form id="command-form">
-      <input type="text" id="command-input" placeholder="Type a command..." autofocus />
-    </form>
-  </div>
-
-  <script>
-    const form = document.getElementById('command-form');
-    const input = document.getElementById('command-input');
-    const log = document.getElementById('log');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const command = input.value;
-      input.value = '';
-      const response = await fetch('/action', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({command})
-      });
-      const data = await response.json();
-      log.innerHTML = data.log.map(entry => `<p>${entry}</p>`).join('');
-    });
-  </script>
+    <script>
+        const icons = [
+            `<path d="M10 2h4v4h-4V2zM7 7h10v2h-2v13h-2v-6h-2v6H9V9H7V7zM5 5v2h2V5H5zm0 0H3V3h2v2zm14 0v2h-2V5h2zm0 0V3h2v2h-2z" fill="currentColor"/>`,
+            `<path d="M10 2h4v4h-4V2zM3 7h18v2h-6v13h-2v-6h-2v6H9V9H3V7z" fill="currentColor"/>`,
+            `<path d="M10 2h4v4h-4V2zM7 7h10v2h-2v13h-2v-6h-2v6H9V9H7V7zm-2 4h2V9H5v2zm0 0v2H3v-2h2zm14 0h-2V9h2v2zm0 0h2v2h-2v-2z" fill="currentColor"/>`,
+            `<path d="M10 2h4v4h-4V2zM3 7h18v2h-6v13h-2v-6h-2v6H9V9H3V7z" fill="currentColor"/>`
+        ];
+        let currentIndex = 0;
+        setInterval(() => {
+            const icon = document.getElementById('icon');
+            icon.innerHTML = icons[currentIndex];
+            currentIndex = (currentIndex + 1) % icons.length;
+        }, 100);
+    </script>
+    <p class="copyrights">Copyright © 2025. All rights reserved.</p>
+    <p class="links">
+        <a href="https://github.com/ThinkTrout" target="_blank" rel="noopener noreferrer">Created with ❤️ by ThinkTrout</a>
+        <a href="https://github.com/ThinkTrout/A-Flight-of-Fantasy-v2" target="_blank" rel="noopener noreferrer">Source Code on Github</a>
+    </p>
+    <button class="center-button">
+        Play Now
+    </button>
 </body>
+
 </html>
+

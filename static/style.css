@@ -1,21 +1,85 @@
 body {
-    background-color: #111;
-    color: #eee;
-    font-family: 'Courier New', monospace;
-    padding: 20px;
-  }
-  
-  .container {
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    background: #222;
-    color: #eee;
-    border: 1px solid #444;
-    font-family: inherit;
-  }
-  
+    background-color: #fff1d2;
+    color: #000000;
+}
+
+.title {
+    font-family: 'Instrument Serif';
+    size: 64px;
+    font-size: 64px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    letter-spacing: -3px;
+}
+
+.subtitle {
+    font-family: 'Inter';
+    font-weight: 400; 
+    letter-spacing: -1px;
+    font-size: 16px;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    word-wrap: break-word;
+}
+
+.copyrights {
+    font-family: 'Inter';
+    font-weight: 400; 
+    letter-spacing: -1px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+.links {
+    font-family: 'Inter';
+    font-weight: 400; 
+    letter-spacing: -1px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.links a {
+    margin: 0 10px; /* Adds spacing between links */
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.1s ease-in-out;
+}
+
+.links a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    transform: scale(1.05);
+}
+
+.center-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    border: 1px solid #000000;
+    background: none;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.center-button:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
