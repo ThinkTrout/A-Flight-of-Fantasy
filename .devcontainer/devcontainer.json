@@ -1,0 +1,17 @@
+{
+    "name": "A-Flight-of-Fantasy-v2",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11", // Use a Python image
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+    },
+    "postCreateCommand": "pip install -r requirements.txt",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    }
+}
