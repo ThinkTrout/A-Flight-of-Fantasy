@@ -33,8 +33,9 @@ body {
     margin: 0 auto;
     position: absolute;
     bottom: 20px;
-    left: 20px;
+    left: 60px;
 }
+
 .links {
     font-family: 'Inter';
     font-weight: 400; 
@@ -82,4 +83,11 @@ body {
 .center-button:hover {
     text-decoration: underline;
     text-decoration-thickness: 2px;
+}
+
+.scroll-icon {
+    margin: 0 auto;
+    position: absolute;
+    bottom: -112px;
+    left: 20px;
 }
