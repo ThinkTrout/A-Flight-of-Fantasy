@@ -40,8 +40,12 @@ class Player:
         }
 
 @app.route("/")
-def index():
-    return render_template("index.html", state={"log": []}, player=player)
+def home():
+    return render_template("home.html", state={"log": []}, player=player)
+
+@app.route('/game')
+def game():
+    return render_template('game.html')
 
 if __name__ == '__main__':
     player = Player()
