@@ -58,7 +58,7 @@ body {
 
 .links a:hover {
     text-decoration: underline;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 1.5px;
     transform: scale(1.05);
 }
 
@@ -82,7 +82,7 @@ body {
 
 .center-button:hover {
     text-decoration: underline;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 1.5px;
 }
 
 .scroll-icon {
