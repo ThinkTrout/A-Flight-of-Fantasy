@@ -1,4 +1,4 @@
-# A-Flight-of-Fantasy-v2
+# A Flight of Fantasy
 
 This is a text-based RPG created out of boredom and fueled by lazy curiosity and unrealistic ambitions.\
 I am currently in the process of teaching myself HTML and CSS by trial and error.
