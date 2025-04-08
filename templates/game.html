@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='gamestyle.css') }}" />
+    <style>
+        /* Fade-in animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
-<body>
-    <h1>Welcome to the Game!</h1>
-    <p>This is where your game content will go.</p>
+<body class="fade-in">
+    <div class="topnav-container">
+        <button class="topnav">Inventory</button>
+        <button class="topnav">Travel</button>
+        <button class="topnav">Character</button>
+        <button class="topnav">Other</button>
+    </div>
 </body>
 </html>
